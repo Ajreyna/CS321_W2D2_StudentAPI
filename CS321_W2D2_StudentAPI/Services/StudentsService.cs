@@ -40,6 +40,8 @@ namespace CS321_W2D2_StudentAPI.Services
             // store in the list of students
             _students.Add(student);
             // return the new Student with Id filled in
+            /* HERE validate email*/
+            
             return student;
         }
 
@@ -58,17 +60,19 @@ namespace CS321_W2D2_StudentAPI.Services
         public Student Get(int id)
         {
             // return the specified Student or null if not found
+            return (Get(id));
         }
 
         public IEnumerable<Student> GetAll()
         {
             // return all students
+            return GetAll();
         }
 
         public Student Update(Student updatedStudent)
         {
             // get the Student object in the current list with this id 
-
+            return Update(updatedStudent);
             // return null if item to update isn't found
 
             // copy the property values from the updated student into the current student object

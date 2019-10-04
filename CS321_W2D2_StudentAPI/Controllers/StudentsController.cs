@@ -8,7 +8,7 @@ namespace CS321_W2D2_StudentAPI.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        private readonly IStudentsService _studentsService;
+        public readonly IStudentsService _studentsService;
 
         // Constructor
         public StudentsController(/* HINT: what parameter is necessary to inject the service? */)
