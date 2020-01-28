@@ -60,29 +60,42 @@ namespace CS321_W2D2_StudentAPI.Services
         public Student Get(int id)
         {
             // return the specified Student or null if not found
-            return (Get(id));
+            //return (Get(id));
+            return _students.FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Student> GetAll()
         {
             // return all students
-            return GetAll();
+            //return GetAll();
+            return _students;
         }
 
         public Student Update(Student updatedStudent)
         {
-            // get the Student object in the current list with this id 
-            return Update(updatedStudent);
+            // get the Student object in the current list with this id
+            var studentCurrent = this.Get(updatedStudent.Id);
+           // return Update(updatedStudent);
             // return null if item to update isn't found
+            if (updatedStudent == null) return null;
+
 
             // copy the property values from the updated student into the current student object
+            studentCurrent.BirthDate = updatedStudent.BirthDate;
+            studentCurrent.Email = updatedStudent.Email;
+            studentCurrent.FirstName = updatedStudent.FirstName;
+            studentCurrent.LastName = updatedStudent.LastName;
+            studentCurrent.Id = updatedStudent.Id;
+            studentCurrent.Phone = updatedStudent.Phone;
 
             // return student
+            return Update(updatedStudent);
         }
 
         public void Remove(Student student)
         {
             // remove student
+            _students.Remove(student);
         }
     }
 }
